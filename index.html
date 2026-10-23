@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="tr" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha Can Tunç | Mechatronics & Systems Engineer</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+    <title>Taha Can Tunç — Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
     
-    <!-- Fonts -->
+    <!-- Google Fonts: Newsreader (Editorial Serif), Plus Jakarta Sans (Clean Sans), JetBrains Mono (Tech Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Newsreader"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
-                        dark: {
-                            950: '#07090e',
-                            900: '#0c1017',
-                            850: '#111722',
-                            800: '#172030',
-                            700: '#222f46',
-                            600: '#334460'
+                        warm: {
+                            50: '#FAF8F5',   /* Claude warm page bg */
+                            100: '#F4F0E8',  /* Subdued warm container */
+                            150: '#ECE6DC',  /* Borders & dividing lines */
+                            200: '#E2DCD1',
+                            300: '#C7C0B3',
+                            600: '#7A7469',  /* Secondary text */
+                            800: '#3D3A34',  /* Charcoal text */
+                            900: '#1F1E1B',  /* Pitch warm black */
                         },
-                        accent: {
-                            cyan: '#06b6d4',
-                            blue: '#3b82f6',
-                            indigo: '#6366f1'
+                        terracotta: {
+                            DEFAULT: '#C85A32', /* Claude signature clay / rust accent */
+                            hover: '#B34B25',
+                            light: '#F8EFEA',
                         }
                     }
                 }
@@ -46,396 +48,368 @@
     </script>
     <style>
         body {
+            background-color: #FAF8F5;
+            color: #1F1E1B;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #07090e;
-            color: #e2e8f0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif-heading {
+            font-family: 'Newsreader', Georgia, serif;
+            letter-spacing: -0.02em;
         }
         .tab-btn.active {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
-            border-color: #38bdf8;
-            color: #38bdf8;
-            box-shadow: 0 0 15px -3px rgba(56, 189, 248, 0.25);
-        }
-        .filter-btn.active {
-            background-color: #38bdf8;
-            color: #07090e;
+            background-color: #FFFFFF;
+            color: #1F1E1B;
+            border-color: #E2DCD1;
+            box-shadow: 0 1px 3px rgba(31, 30, 27, 0.05), 0 1px 2px rgba(31, 30, 27, 0.03);
             font-weight: 600;
         }
-        .glass-panel {
-            background: rgba(17, 23, 34, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .filter-btn.active {
+            background-color: #1F1E1B;
+            color: #FFFFFF;
         }
-        .glass-card {
-            background: rgba(17, 23, 34, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        .card-surface {
+            background: #FFFFFF;
+            border: 1px solid #ECE6DC;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .glass-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 12px 25px -8px rgba(6, 182, 212, 0.15);
-        }
-        .scrollbar-none::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-none {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .card-surface:hover {
+            border-color: #D3CCC0;
+            box-shadow: 0 4px 12px -2px rgba(31, 30, 27, 0.06);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black antialiased">
+<body class="min-h-screen flex flex-col selection:bg-terracotta selection:text-white">
 
-    <!-- Top Sticky Header -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Subtle Top Navigation -->
+    <header class="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-warm-150">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20">
-                    TC
-                </div>
-                <div>
-                    <h1 class="text-base font-bold text-white leading-tight">Taha Can Tunç</h1>
-                    <p class="text-xs text-slate-400 flex items-center gap-1.5 font-mono">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span data-i18n="status">Mekatronik & Savunma Sanayii</span>
-                    </p>
-                </div>
+                <a href="#" class="flex items-center gap-2.5 text-warm-900 group">
+                    <span class="w-8 h-8 rounded-full bg-warm-100 border border-warm-200 flex items-center justify-center text-xs font-serif italic font-bold text-terracotta group-hover:bg-terracotta-light transition">
+                        T
+                    </span>
+                    <span class="font-serif text-lg font-semibold tracking-tight text-warm-900">Taha Can Tunç</span>
+                </a>
             </div>
 
-            <!-- Socials & Language Switcher -->
+            <!-- Header Actions -->
             <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Social links -->
                 <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" rel="noopener noreferrer" 
-                   class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition" title="LinkedIn">
-                    <i class="fab fa-linkedin-in text-lg"></i>
+                   class="w-8 h-8 rounded-lg flex items-center justify-center text-warm-600 hover:text-warm-900 hover:bg-warm-100 transition" title="LinkedIn">
+                    <i class="fab fa-linkedin-in text-sm"></i>
                 </a>
                 <a href="https://github.com/NothingManTR" target="_blank" rel="noopener noreferrer" 
-                   class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition" title="GitHub">
-                    <i class="fab fa-github text-lg"></i>
+                   class="w-8 h-8 rounded-lg flex items-center justify-center text-warm-600 hover:text-warm-900 hover:bg-warm-100 transition" title="GitHub">
+                    <i class="fab fa-github text-sm"></i>
                 </a>
                 <a href="mailto:tcttaha@gmail.com" 
-                   class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition" title="Email">
-                    <i class="fas fa-envelope text-lg"></i>
+                   class="w-8 h-8 rounded-lg flex items-center justify-center text-warm-600 hover:text-warm-900 hover:bg-warm-100 transition" title="Email">
+                    <i class="fas fa-envelope text-sm"></i>
                 </a>
 
-                <div class="h-4 w-px bg-slate-800 mx-1"></div>
+                <div class="h-4 w-px bg-warm-200 mx-1"></div>
 
-                <!-- Language Toggle Button -->
-                <button id="langToggle" class="px-2.5 py-1 text-xs font-mono font-medium rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700/60 transition flex items-center gap-1.5">
-                    <i class="fas fa-globe text-cyan-400"></i>
-                    <span id="currentLangLabel">EN</span>
-                </button>
+                <!-- Language Selector Pill (Default English) -->
+                <div class="flex items-center bg-warm-100 p-0.5 rounded-full border border-warm-200 text-xs font-mono">
+                    <button id="langBtnEn" class="px-2.5 py-1 rounded-full font-medium transition bg-white text-warm-900 shadow-sm" onclick="setLanguage('en')">EN</button>
+                    <button id="langBtnTr" class="px-2.5 py-1 rounded-full font-medium transition text-warm-600 hover:text-warm-900" onclick="setLanguage('tr')">TR</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex flex-col gap-6">
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-5xl w-full mx-auto px-5 sm:px-8 py-8 sm:py-12 flex flex-col gap-8">
 
-        <!-- Modern Profile Hero Banner -->
-        <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden border border-slate-800">
-            <div class="absolute -top-24 -right-24 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div class="space-y-3 max-w-3xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-400 text-xs font-mono">
-                        <i class="fas fa-microchip"></i>
-                        <span data-i18n="heroBadge">Mekatronik & Gömülü Sistemler Geliştiricisi</span>
-                    </div>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                        <span data-i18n="heroGreeting">Geleceğin Savunma ve Otonom Sistemlerini Tasarlayan</span>
-                        <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent block mt-1">Mühendis Adayı</span>
-                    </h2>
-                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed" data-i18n="heroBio">
-                        Sensör entegrasyonu, gömülü yazılımlar (C/C++, Python) ve otonom mekatronik platformlar üzerine odaklanıyorum. Deneyap Türkiye mezunu ve İHA-1/İHA-2 ticari drone pilotuyum.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap sm:flex-col gap-2.5 w-full md:w-auto shrink-0">
-                    <a href="https://github.com/NothingManTR" target="_blank" 
-                       class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
-                        <i class="fab fa-github text-base"></i>
-                        <span data-i18n="btnGitHub">GitHub Profili</span>
-                    </a>
-                    <a href="mailto:tcttaha@gmail.com" 
-                       class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-white font-medium text-xs sm:text-sm text-center flex items-center justify-center gap-2 transition">
-                        <i class="fas fa-paper-plane text-cyan-400 text-xs"></i>
-                        <span data-i18n="btnContact">İletişime Geç</span>
-                    </a>
-                </div>
+        <!-- Hero Section: Fresh, Editorial, Simple -->
+        <section class="border-b border-warm-150 pb-8 sm:pb-12">
+            <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-warm-600 mb-3">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-600"></span>
+                <span id="heroRoleBadge">Mechatronics & Systems Engineering</span>
             </div>
 
-            <!-- Key Quick Stats Strip -->
-            <div class="mt-6 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="bg-slate-900/60 rounded-xl p-3 border border-slate-800">
-                    <div class="text-xs text-slate-400 font-mono" data-i18n="statEducationLabel">Eğitim</div>
-                    <div class="text-sm font-bold text-white mt-0.5" data-i18n="statEducationVal">MCBÜ</div>
-                    <div class="text-[11px] text-cyan-400 font-mono mt-0.5">Mekatronik Müh.</div>
-                </div>
-                <div class="bg-slate-900/60 rounded-xl p-3 border border-slate-800">
-                    <div class="text-xs text-slate-400 font-mono" data-i18n="statDeneyapLabel">Deneyap Türkiye</div>
-                    <div class="text-sm font-bold text-white mt-0.5" data-i18n="statDeneyapVal">10 Teknoloji Alanı</div>
-                    <div class="text-[11px] text-emerald-400 font-mono mt-0.5" data-i18n="statDeneyapSub">Resmi Mezun</div>
-                </div>
-                <div class="bg-slate-900/60 rounded-xl p-3 border border-slate-800">
-                    <div class="text-xs text-slate-400 font-mono" data-i18n="statUavLabel">Havacılık & İHA</div>
-                    <div class="text-sm font-bold text-white mt-0.5">İHA-1 & İHA-2</div>
-                    <div class="text-[11px] text-blue-400 font-mono mt-0.5" data-i18n="statUavSub">Ticari Pilot Lisansı</div>
-                </div>
-                <div class="bg-slate-900/60 rounded-xl p-3 border border-slate-800">
-                    <div class="text-xs text-slate-400 font-mono" data-i18n="statVisionLabel">Vizyon</div>
-                    <div class="text-sm font-bold text-white mt-0.5">Savunma Sanayii</div>
-                    <div class="text-[11px] text-indigo-400 font-mono mt-0.5">ASELSAN / BAYKAR / TUNÇSAN</div>
-                </div>
-            </div>
-        </div>
+            <h1 class="serif-heading text-3xl sm:text-5xl font-normal text-warm-900 leading-[1.15] max-w-3xl mb-5">
+                <span id="heroTitle">Engineering thoughtful autonomous systems, embedded software, and defense solutions.</span>
+            </h1>
 
-        <!-- App-Style Segmented Navigation Tabs (No cumbersome 1-page scrolling!) -->
-        <nav class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none sticky top-16 z-30 py-2 bg-[#07090e]/95 backdrop-blur-md">
-            <button class="tab-btn active px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-overview">
-                <i class="fas fa-compass"></i>
-                <span data-i18n="tabOverview">Genel Bakış</span>
+            <p id="heroBio" class="text-base sm:text-lg text-warm-600 leading-relaxed max-w-2xl font-normal mb-6">
+                Mechatronics Engineering student at Manisa Celal Bayar University. Focused on sensor integration, microcontrollers (C/C++, Python), and open-source Linux architectures. Deneyap Türkiye alumni & certified commercial UAV pilot.
+            </p>
+
+            <!-- Quick Action Links -->
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="mailto:tcttaha@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-warm-900 text-white text-xs sm:text-sm font-medium hover:bg-warm-800 transition shadow-sm">
+                    <i class="fas fa-arrow-right text-[11px] text-terracotta"></i>
+                    <span id="heroCtaContact">Get in Touch</span>
+                </a>
+                <a href="https://github.com/NothingManTR" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-warm-200 text-warm-800 text-xs sm:text-sm font-medium hover:border-warm-300 hover:bg-warm-50 transition">
+                    <i class="fab fa-github text-sm"></i>
+                    <span id="heroCtaGitHub">View GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-warm-200 text-warm-800 text-xs sm:text-sm font-medium hover:border-warm-300 hover:bg-warm-50 transition">
+                    <i class="fab fa-linkedin-in text-sm text-[#0A66C2]"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Fresh, Minimal Segmented Navigation (Tabs) -->
+        <nav class="flex items-center gap-1.5 p-1 rounded-xl bg-warm-100 border border-warm-150 overflow-x-auto scrollbar-none self-start max-w-full">
+            <button class="tab-btn active px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="overview" id="navTabOverview">
+                Overview
             </button>
-            <button class="tab-btn px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-projects">
-                <i class="fas fa-layer-group"></i>
-                <span data-i18n="tabProjects">Projeler</span>
+            <button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="projects" id="navTabProjects">
+                Projects
             </button>
-            <button class="tab-btn px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-skills">
-                <i class="fas fa-screwdriver-wrench"></i>
-                <span data-i18n="tabSkills">Teknik Beceriler</span>
+            <button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="skills" id="navTabSkills">
+                Technical Skills
             </button>
-            <button class="tab-btn px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-experience">
-                <i class="fas fa-building-columns"></i>
-                <span data-i18n="tabExperience">Eğitim & Deneyim</span>
+            <button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="experience" id="navTabExperience">
+                Education & Background
             </button>
-            <button class="tab-btn px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-awards">
-                <i class="fas fa-award"></i>
-                <span data-i18n="tabAwards">Ödüller & Sertifikalar</span>
+            <button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="awards" id="navTabAwards">
+                Honors & Certifications
             </button>
-            <button class="tab-btn px-4 py-2 rounded-xl border border-slate-800 bg-slate-900/60 text-xs sm:text-sm font-medium whitespace-nowrap transition flex items-center gap-2 text-slate-300" data-target="tab-contact">
-                <i class="fas fa-address-book"></i>
-                <span data-i18n="tabContact">İletişim</span>
+            <button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-warm-600 transition whitespace-nowrap" data-tab="contact" id="navTabContact">
+                Contact
             </button>
         </nav>
 
         <!-- TAB CONTENT CONTAINER -->
-        <div class="tab-contents">
+        <div class="tab-panes flex flex-col gap-8">
 
-            <!-- TAB 1: OVERVIEW (GENEL BAKIŞ) -->
-            <div id="tab-overview" class="tab-pane flex flex-col gap-6">
-                <!-- Career Goal & Vision Card -->
-                <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white" data-i18n="visionTitle">🎯 Kariyer Hedefi ve Vizyon</h3>
-                    </div>
-                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed" data-i18n="visionText">
-                        Savunma sanayii sektöründe, Türkiye'nin öncü kurumları olan <strong>ASELSAN</strong>, <strong>ROKETSAN</strong> ve <strong>BAYKAR</strong> gibi kurumlarda mühendislik, Ar-Ge ve sistem tasarımı pozisyonlarında görev alarak yenilikçi projelere aktif katkı sağlamayı hedeflemekteyim. Uzun vadeli vizyonum ise <strong>"TUNÇSAN"</strong> adıyla kendi savunma sanayii ve ileri teknoloji mekatronik şirketimi kurarak bu alanda küresel ölçekte çığır açan projelere imza atmaktır.
+            <!-- TAB 1: OVERVIEW -->
+            <div id="pane-overview" class="tab-pane flex flex-col gap-8">
+                
+                <!-- Career Vision / Statement Box -->
+                <div class="card-surface rounded-2xl p-6 sm:p-8">
+                    <span class="text-xs font-mono uppercase tracking-wider text-terracotta font-semibold" id="overviewVisionBadge">Career Mission</span>
+                    <h2 class="serif-heading text-2xl sm:text-3xl text-warm-900 mt-2 mb-4" id="overviewVisionTitle">
+                        Contributing to advanced defense systems and pioneering autonomous engineering.
+                    </h2>
+                    <p class="text-sm sm:text-base text-warm-600 leading-relaxed font-normal" id="overviewVisionBody">
+                        Committed to contributing to engineering, R&D, and systems architecture at premier defense institutions including ASELSAN, ROKETSAN, and BAYKAR. Long-term aspiration: founding "TUNÇSAN" to pioneer global breakthrough mechatronic and defense technologies.
                     </p>
                 </div>
 
-                <!-- Featured Highlights Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Featured Project 1 -->
-                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/60">IoT & Akıllı Tarım</span>
-                                <a href="https://nothingmantr.github.io/Plantelligence/" target="_blank" class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-mono">
-                                    Canlı Demo <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
-                                </a>
-                            </div>
-                            <h4 class="text-base font-bold text-white mb-2">Plantelligence: Akıllı Bitki Platformu</h4>
-                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="plantelligenceBrief">
-                                Deneyap Kart ve IoT sensörleri ile ısı, nem, ışık ve otomatik sulamayı optimize eden kapalı döngü akıllı sera sistemi.
-                            </p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                            <span>Deneyap Kart • C++ • Sensörler</span>
-                            <a href="https://github.com/NothingManTR/Plantelligence12" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1">
-                                <i class="fab fa-github"></i> Repo
-                            </a>
-                        </div>
+                <!-- Highlighted Projects Grid -->
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="serif-heading text-xl text-warm-900" id="overviewFeaturedHeading">Featured Work</h3>
+                        <button onclick="switchTab('projects')" class="text-xs font-mono text-terracotta hover:text-terracotta-hover flex items-center gap-1" id="overviewViewAllBtn">
+                            View all projects <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
                     </div>
 
-                    <!-- Featured Project 2 -->
-                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/60">Linux & Sistem Araçları</span>
-                                <span class="text-xs text-slate-400 font-mono">Omarchy Linux</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <!-- Plantelligence Card -->
+                        <div class="card-surface rounded-2xl p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                    <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800" id="overviewTagIot">IoT & Agriculture</span>
+                                    <span>2024 – 2025</span>
+                                </div>
+                                <h4 class="serif-heading text-xl text-warm-900 mb-2" id="overviewPlantelligenceTitle">Plantelligence — Smart Greenhouse Platform</h4>
+                                <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="overviewPlantelligenceDesc">
+                                    Autonomous cultivation and greenhouse platform utilizing Deneyap Board & environmental sensors to regulate temperature, humidity, lighting, and automated irrigation.
+                                </p>
                             </div>
-                            <h4 class="text-base font-bold text-white mb-2">omadock & island</h4>
-                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="omadockBrief">
-                                Arch/Omarchy Linux masaüstü ortamı için geliştirilmiş hafif, minimalist uygulama doku ve dinamik arayüz menü araçları.
-                            </p>
+                            <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                                <a href="https://nothingmantr.github.io/Plantelligence/" target="_blank" class="text-terracotta hover:underline flex items-center gap-1 font-medium" id="overviewLiveDemo1">
+                                    Live Demo <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                                <a href="https://github.com/NothingManTR/Plantelligence12" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1">
+                                    <i class="fab fa-github"></i> Repository
+                                </a>
+                            </div>
                         </div>
-                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                            <span>Linux • Bash/C • Wayland</span>
-                            <a href="https://github.com/NothingManTR/omadock" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1">
-                                <i class="fab fa-github"></i> Repo
-                            </a>
+
+                        <!-- omadock & island Card -->
+                        <div class="card-surface rounded-2xl p-6 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                    <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800" id="overviewTagLinux">Linux & Desktop</span>
+                                    <span>Open Source</span>
+                                </div>
+                                <h4 class="serif-heading text-xl text-warm-900 mb-2" id="overviewOmadockTitle">omadock & island — Desktop Utilities</h4>
+                                <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="overviewOmadockDesc">
+                                    Lightweight, clean application dock and dynamic launcher HUD designed for the Arch/Omarchy Linux desktop ecosystem with minimal resource footprint.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                                <span class="text-warm-600">Omarchy Ecosystem</span>
+                                <div class="flex items-center gap-3">
+                                    <a href="https://github.com/NothingManTR/omadock" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1">
+                                        <i class="fab fa-github"></i> omadock
+                                    </a>
+                                    <a href="https://github.com/NothingManTR/island" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1">
+                                        <i class="fab fa-github"></i> island
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- GitHub Live Quick Stats -->
-                <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
-                            <i class="fab fa-github text-slate-400"></i>
-                            <span data-i18n="githubLiveTitle">GitHub Canlı Aktivite Özeti</span>
-                        </h4>
-                        <a href="https://github.com/NothingManTR" target="_blank" class="text-xs text-cyan-400 hover:underline font-mono">
-                            @NothingManTR
-                        </a>
+                <!-- At a Glance Metrics -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                    <div class="card-surface rounded-xl p-4 text-center">
+                        <div class="text-2xl font-serif text-warm-900 font-semibold">MCBÜ</div>
+                        <div class="text-xs text-warm-600 font-mono mt-1" id="metricUniv">Mechatronics Eng.</div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <img src="https://github-readme-stats.vercel.app/api?username=NothingManTR&show_icons=true&theme=github_dark&hide_border=true&bg_color=0c1017" alt="GitHub Stats" class="w-full rounded-xl border border-slate-800/80" loading="lazy">
-                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NothingManTR&layout=compact&theme=github_dark&hide_border=true&bg_color=0c1017" alt="Top Languages" class="w-full rounded-xl border border-slate-800/80" loading="lazy">
+                    <div class="card-surface rounded-xl p-4 text-center">
+                        <div class="text-2xl font-serif text-warm-900 font-semibold">10</div>
+                        <div class="text-xs text-warm-600 font-mono mt-1" id="metricDeneyap">Tech Disciplines</div>
+                    </div>
+                    <div class="card-surface rounded-xl p-4 text-center">
+                        <div class="text-2xl font-serif text-warm-900 font-semibold">İHA-1/2</div>
+                        <div class="text-xs text-warm-600 font-mono mt-1" id="metricUav">Licensed Drone Pilot</div>
+                    </div>
+                    <div class="card-surface rounded-xl p-4 text-center">
+                        <div class="text-2xl font-serif text-warm-900 font-semibold">9+</div>
+                        <div class="text-xs text-warm-600 font-mono mt-1" id="metricRepos">Public Repositories</div>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 2: PROJECTS (PROJELER) -->
-            <div id="tab-projects" class="tab-pane hidden flex flex-col gap-6">
-                <!-- Filter bar -->
-                <div class="flex items-center justify-between flex-wrap gap-3">
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <button class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-mono transition bg-slate-800 text-slate-300 hover:text-white border border-slate-700" data-filter="all">Tümü</button>
-                        <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono transition bg-slate-900 text-slate-400 hover:text-white border border-slate-800" data-filter="mechatronics">Mekatronik & Donanım</button>
-                        <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono transition bg-slate-900 text-slate-400 hover:text-white border border-slate-800" data-filter="linux">Linux & Masaüstü</button>
-                        <button class="filter-btn px-3 py-1.5 rounded-lg text-xs font-mono transition bg-slate-900 text-slate-400 hover:text-white border border-slate-800" data-filter="software">Yazılım & Web</button>
+            <!-- TAB 2: PROJECTS -->
+            <div id="pane-projects" class="tab-pane hidden flex flex-col gap-6">
+                <!-- Filter Pills -->
+                <div class="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-warm-150">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <button class="filter-btn active px-3 py-1 rounded-full text-xs font-mono transition bg-warm-100 text-warm-800 border border-warm-200" data-filter="all" id="filterAll">All Projects</button>
+                        <button class="filter-btn px-3 py-1 rounded-full text-xs font-mono transition bg-warm-100 text-warm-600 border border-warm-200 hover:text-warm-900" data-filter="mechatronics" id="filterMechatronics">Mechatronics & IoT</button>
+                        <button class="filter-btn px-3 py-1 rounded-full text-xs font-mono transition bg-warm-100 text-warm-600 border border-warm-200 hover:text-warm-900" data-filter="linux" id="filterLinux">Linux & Tools</button>
+                        <button class="filter-btn px-3 py-1 rounded-full text-xs font-mono transition bg-warm-100 text-warm-600 border border-warm-200 hover:text-warm-900" data-filter="software" id="filterSoftware">Software & Web</button>
                     </div>
-                    <span class="text-xs text-slate-400 font-mono"><strong class="text-cyan-400" id="projectCount">5</strong> Proje Listelendi</span>
                 </div>
 
                 <!-- Projects Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectsContainer">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projectsGrid">
                     
-                    <!-- Proje: Plantelligence -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between project-item" data-category="mechatronics">
+                    <!-- Project: Plantelligence -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col justify-between project-card" data-category="mechatronics">
                         <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/60">IoT & Akıllı Tarım</span>
-                                <span class="text-[11px] text-slate-500 font-mono">2024 - 2025</span>
+                            <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800 font-mono" id="pjCatIot">IoT & Hardware</span>
+                                <span>2024</span>
                             </div>
-                            <h4 class="text-lg font-bold text-white mb-2">Akıllı Bitki Yetiştirme Platformu – Plantelligence</h4>
-                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                                Deneyap Kart tabanlı, bitki gelişimi için gerekli ortam koşullarını (ısı, nem, ışık, otomatik sulama döngüsü) sensörlerle ölçen ve yöneten akıllı sera sistemi.
+                            <h4 class="serif-heading text-xl text-warm-900 mb-2" id="pjTitlePlantelligence">Plantelligence — Smart Cultivation System</h4>
+                            <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="pjDescPlantelligence">
+                                Closed-loop agricultural automation with Deneyap Board, environmental sensors, and a real-time web portal managing temperature, humidity, lighting, and automated irrigation.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Deneyap Kart</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Sensör Entegrasyonu</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">C/C++</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Web Dashboard</span>
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-warm-600">
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Deneyap Kart</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">C/C++</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Sensors</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Web Dashboard</span>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                            <a href="https://nothingmantr.github.io/Plantelligence/" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
-                                <i class="fas fa-globe"></i> Canlı Siteyi Aç
+                        <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                            <a href="https://nothingmantr.github.io/Plantelligence/" target="_blank" class="text-terracotta hover:underline flex items-center gap-1 font-medium" id="pjLiveSite">
+                                Live Platform <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
                             </a>
-                            <a href="https://github.com/NothingManTR/Plantelligence12" target="_blank" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1.5">
-                                <i class="fab fa-github"></i> GitHub Repo
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Proje: Akıllı Drone Konsepti -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between project-item" data-category="mechatronics">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-blue-950 text-blue-400 border border-blue-800/60">Savunma & İHA</span>
-                                <span class="text-[11px] text-slate-500 font-mono">Konsept / Ar-Ge</span>
-                            </div>
-                            <h4 class="text-lg font-bold text-white mb-2">Akıllı İHA & Dinamik Rota Sistemi</h4>
-                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                                Hava savunma unsurlarına karşı sensör füzyonu, dinamik kaçış rota optimizasyonu ve otonom görev icra kabiliyeti hedefleyen mekatronik drone mimarisi.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">İHA-1 / İHA-2</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Sensör Füzyonu</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Otonom Seyrüsefer</span>
-                            </div>
-                        </div>
-                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                            <span class="text-xs font-mono text-slate-500">Mekatronik Sistem Konsepti</span>
-                            <span class="text-xs font-mono text-blue-400">Ar-Ge Aşaması</span>
-                        </div>
-                    </div>
-
-                    <!-- Proje: omadock -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between project-item" data-category="linux">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/60">Linux Araçları</span>
-                                <span class="text-[11px] text-slate-500 font-mono">Açık Kaynak</span>
-                            </div>
-                            <h4 class="text-lg font-bold text-white mb-2">omadock: Minimal Linux Application Dock</h4>
-                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                                Omarchy Linux masaüstü ortamı için tasarlanmış temiz, hafif ve minimal uygulama dock aracı. Düşük kaynak tüketimi ve modern Wayland desteği sunar.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Arch Linux</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Wayland</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Desktop UI</span>
-                            </div>
-                        </div>
-                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                            <span class="text-xs font-mono text-slate-400">Omarchy Desktop</span>
-                            <a href="https://github.com/NothingManTR/omadock" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
-                                <i class="fab fa-github"></i> GitHub Repo
+                            <a href="https://github.com/NothingManTR/Plantelligence12" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1">
+                                <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
                     </div>
 
-                    <!-- Proje: island -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between project-item" data-category="linux">
+                    <!-- Project: UAV System Concept -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col justify-between project-card" data-category="mechatronics">
                         <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-indigo-950 text-indigo-400 border border-indigo-800/60">Sistem Menüleri</span>
-                                <span class="text-[11px] text-slate-500 font-mono">Linux / C</span>
+                            <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800 font-mono" id="pjCatDefense">Defense & UAV</span>
+                                <span id="pjStatusConcept">Concept / R&D</span>
                             </div>
-                            <h4 class="text-lg font-bold text-white mb-2">island: Linux Dynamic Menus</h4>
-                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                                Linux masaüstü için hızlı ve modern arayüz menüleri ve HUD öğeleri sağlayan açık kaynak araç.
+                            <h4 class="serif-heading text-xl text-warm-900 mb-2" id="pjTitleDrone">Smart Autonomous Drone Concept</h4>
+                            <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="pjDescDrone">
+                                Multi-sensor fusion and dynamic evasion route planning system designed for unmanned aerial platforms operating in contested environments.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Linux CLI/GUI</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">C / Shell</span>
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-warm-600">
+                                <span class="px-2 py-0.5 rounded bg-warm-100">UAV-1 / UAV-2</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Autonomous Navigation</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Sensor Fusion</span>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                            <span class="text-xs font-mono text-slate-400">Hızlı Arayüz</span>
-                            <a href="https://github.com/NothingManTR/island" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
-                                <i class="fab fa-github"></i> GitHub Repo
+                        <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono text-warm-600">
+                            <span id="pjRoleConcept">System Architecture</span>
+                            <span class="text-terracotta font-medium" id="pjStageResearch">R&D Stage</span>
+                        </div>
+                    </div>
+
+                    <!-- Project: omadock -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col justify-between project-card" data-category="linux">
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800 font-mono">Linux Utilities</span>
+                                <span>Open Source</span>
+                            </div>
+                            <h4 class="serif-heading text-xl text-warm-900 mb-2">omadock — Minimalist Application Dock</h4>
+                            <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="pjDescOmadock">
+                                Clean, minimal application dock designed for the Omarchy Linux desktop ecosystem, focusing on low memory usage and smooth Wayland performance.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-warm-600">
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Arch Linux</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Wayland</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Shell / C</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                            <span class="text-warm-600">Desktop Extension</span>
+                            <a href="https://github.com/NothingManTR/omadock" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1 font-medium">
+                                <i class="fab fa-github"></i> Repository
                             </a>
                         </div>
                     </div>
 
-                    <!-- Proje: AnonChat -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between project-item" data-category="software">
+                    <!-- Project: island -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col justify-between project-card" data-category="linux">
                         <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-purple-950 text-purple-400 border border-purple-800/60">Ağ & İletişim</span>
-                                <span class="text-[11px] text-slate-500 font-mono">Proje</span>
+                            <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800 font-mono">Linux Menus</span>
+                                <span>C / Shell</span>
                             </div>
-                            <h4 class="text-lg font-bold text-white mb-2">AnonChat: Gerçek Zamanlı Mesajlaşma</h4>
-                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                                Kullanıcı gizliliğini temel alan, hafif ve gerçek zamanlı anonim sohbet/iletişim altyapısı.
+                            <h4 class="serif-heading text-xl text-warm-900 mb-2">island — Dynamic Desktop HUD</h4>
+                            <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="pjDescIsland">
+                                Fast, accessible dynamic menu launcher and HUD utilities rewritten for modern lightweight Linux distributions.
                             </p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Socket / Web</span>
-                                <span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300">Gizlilik</span>
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-warm-600">
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Linux CLI/GUI</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Fast Launch</span>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                            <span class="text-xs font-mono text-slate-400">P2P / Realtime</span>
-                            <a href="https://github.com/NothingManTR/AnonChat" target="_blank" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
-                                <i class="fab fa-github"></i> GitHub Repo
+                        <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                            <span class="text-warm-600">Omarchy UI</span>
+                            <a href="https://github.com/NothingManTR/island" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1 font-medium">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: AnonChat -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col justify-between project-card" data-category="software">
+                        <div>
+                            <div class="flex items-center justify-between text-xs font-mono text-warm-600 mb-2">
+                                <span class="px-2 py-0.5 rounded bg-warm-100 text-warm-800 font-mono" id="pjCatNetworking">Networking & Privacy</span>
+                                <span>Software</span>
+                            </div>
+                            <h4 class="serif-heading text-xl text-warm-900 mb-2">AnonChat — Anonymous Messaging</h4>
+                            <p class="text-xs sm:text-sm text-warm-600 leading-relaxed font-normal mb-4" id="pjDescAnonchat">
+                                Real-time, privacy-focused anonymous communication platform built with lightweight socket connections and zero persistent tracking.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-warm-600">
+                                <span class="px-2 py-0.5 rounded bg-warm-100">WebSockets</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Privacy</span>
+                                <span class="px-2 py-0.5 rounded bg-warm-100">Node / Web</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-warm-150 flex items-center justify-between text-xs font-mono">
+                            <span class="text-warm-600">Real-Time Messaging</span>
+                            <a href="https://github.com/NothingManTR/AnonChat" target="_blank" class="text-warm-600 hover:text-warm-900 flex items-center gap-1 font-medium">
+                                <i class="fab fa-github"></i> Repository
                             </a>
                         </div>
                     </div>
@@ -443,347 +417,323 @@
                 </div>
             </div>
 
-            <!-- TAB 3: SKILLS (TEKNİK BECERİLER) -->
-            <div id="tab-skills" class="tab-pane hidden flex flex-col gap-6">
-                <!-- Visual Icon Stack -->
-                <div class="glass-card rounded-2xl p-6 text-center border border-slate-800">
-                    <p class="text-xs text-slate-400 font-mono mb-3">Sık Kullanılan Geliştirme Teknolojileri</p>
-                    <img src="https://skillicons.dev/icons?i=cpp,c,python,matlab,bash,arduino,linux,git,github,vscode&theme=dark" alt="Tech Stack" class="mx-auto" loading="lazy">
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Kategori 1 -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+            <!-- TAB 3: TECHNICAL SKILLS -->
+            <div id="pane-skills" class="tab-pane hidden flex flex-col gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- Column 1: Programming & Software -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col gap-4">
+                        <div class="flex items-center gap-2.5 pb-3 border-b border-warm-150">
+                            <span class="w-7 h-7 rounded-lg bg-warm-100 flex items-center justify-center text-xs text-terracotta">
                                 <i class="fas fa-code"></i>
-                            </div>
-                            <h4 class="font-bold text-white text-base">Programlama & Yazılım</h4>
+                            </span>
+                            <h4 class="serif-heading text-lg text-warm-900" id="skillCol1Title">Software & Coding</h4>
                         </div>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">C++ / C</span>
-                                <span class="font-mono text-cyan-400 text-xs">Gömülü & Algoritmalar</span>
+                        <ul class="space-y-3 text-xs sm:text-sm">
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">C++ / C</span>
+                                <span class="font-mono text-xs text-warm-600">Embedded & Systems</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Python</span>
-                                <span class="font-mono text-cyan-400 text-xs">Veri Analizi & Otomasyon</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Python</span>
+                                <span class="font-mono text-xs text-warm-600">Analysis & Automation</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">MATLAB & Simulink</span>
-                                <span class="font-mono text-cyan-400 text-xs">Sistem Simülasyonu</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">MATLAB & Simulink</span>
+                                <span class="font-mono text-xs text-warm-600">Modeling & Control</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Embarcadero C++</span>
-                                <span class="font-mono text-slate-400 text-xs">Masaüstü Arayüzleri</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Bash / Shell</span>
+                                <span class="font-mono text-xs text-warm-600">Automation Scripting</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Bash & Linux Shell</span>
-                                <span class="font-mono text-slate-400 text-xs">Sistem Scriptleri</span>
+                            <li class="flex justify-between items-center py-1">
+                                <span class="font-medium text-warm-900">Embarcadero C++</span>
+                                <span class="font-mono text-xs text-warm-600">Desktop Interfaces</span>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Kategori 2 -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                    <!-- Column 2: Embedded & Hardware -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col gap-4">
+                        <div class="flex items-center gap-2.5 pb-3 border-b border-warm-150">
+                            <span class="w-7 h-7 rounded-lg bg-warm-100 flex items-center justify-center text-xs text-terracotta">
                                 <i class="fas fa-microchip"></i>
-                            </div>
-                            <h4 class="font-bold text-white text-base">Gömülü Sistem & Donanım</h4>
+                            </span>
+                            <h4 class="serif-heading text-lg text-warm-900" id="skillCol2Title">Embedded Systems</h4>
                         </div>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Deneyap Kart Mimarisi</span>
-                                <span class="font-mono text-emerald-400 text-xs">ESP32 Tabanlı IoT</span>
+                        <ul class="space-y-3 text-xs sm:text-sm">
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Deneyap Board</span>
+                                <span class="font-mono text-xs text-warm-600">ESP32 IoT</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Arduino & Mikrodenetleyiciler</span>
-                                <span class="font-mono text-slate-400 text-xs">Prototipleme</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Arduino Platform</span>
+                                <span class="font-mono text-xs text-warm-600">Prototyping</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Sensör Entegrasyonu</span>
-                                <span class="font-mono text-slate-400 text-xs">IR, Sıcaklık/Nem, IMU</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Sensor Integration</span>
+                                <span class="font-mono text-xs text-warm-600">IMU, Temp, IR</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Multispektral Kameralar</span>
-                                <span class="font-mono text-slate-400 text-xs">Görüntü İşleme Giriş</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Multispectral Cameras</span>
+                                <span class="font-mono text-xs text-warm-600">Imaging Fundamentals</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Temel Radyo Haberleşme</span>
-                                <span class="font-mono text-slate-400 text-xs">RF / Telemetri</span>
+                            <li class="flex justify-between items-center py-1">
+                                <span class="font-medium text-warm-900">Radio Telemetry</span>
+                                <span class="font-mono text-xs text-warm-600">RF Communication</span>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Kategori 3 -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                    <!-- Column 3: CAD & Engineering -->
+                    <div class="card-surface rounded-2xl p-6 flex flex-col gap-4">
+                        <div class="flex items-center gap-2.5 pb-3 border-b border-warm-150">
+                            <span class="w-7 h-7 rounded-lg bg-warm-100 flex items-center justify-center text-xs text-terracotta">
                                 <i class="fas fa-cube"></i>
-                            </div>
-                            <h4 class="font-bold text-white text-base">3D Tasarım & Simülasyon</h4>
+                            </span>
+                            <h4 class="serif-heading text-lg text-warm-900" id="skillCol3Title">CAD & Environments</h4>
                         </div>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">SolidWorks & Fusion 360</span>
-                                <span class="font-mono text-indigo-400 text-xs">Mekanik Parça CAD</span>
+                        <ul class="space-y-3 text-xs sm:text-sm">
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">SolidWorks & Fusion 360</span>
+                                <span class="font-mono text-xs text-warm-600">Mechanical CAD</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Tinkercad & Blender</span>
-                                <span class="font-mono text-slate-400 text-xs">3D Modelleme / Render</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Tinkercad & Blender</span>
+                                <span class="font-mono text-xs text-warm-600">3D Modeling</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">3D Baskı & Katmanlı İmalat</span>
-                                <span class="font-mono text-slate-400 text-xs">FDM Prototipleme</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">3D Printing / Additive</span>
+                                <span class="font-mono text-xs text-warm-600">FDM Rapid Proto</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Linux (Arch & Omarchy)</span>
-                                <span class="font-mono text-cyan-400 text-xs">Masaüstü & Geliştirme</span>
+                            <li class="flex justify-between items-center py-1 border-b border-warm-100">
+                                <span class="font-medium text-warm-900">Linux (Arch & Omarchy)</span>
+                                <span class="font-mono text-xs text-warm-600">Primary OS</span>
                             </li>
-                            <li class="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
-                                <span class="font-medium text-white">Git / GitHub CI</span>
-                                <span class="font-mono text-slate-400 text-xs">Sürüm Kontrol</span>
+                            <li class="flex justify-between items-center py-1">
+                                <span class="font-medium text-warm-900">Git / GitHub CI</span>
+                                <span class="font-mono text-xs text-warm-600">Version Control</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 4: EDUCATION & EXPERIENCE (EĞİTİM & DENEYİM) -->
-            <div id="tab-experience" class="tab-pane hidden flex flex-col gap-6">
-                <!-- Sektörel Etkileşimler / Deneyim -->
-                <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4 class="text-base font-bold text-white">Sektörel Etkileşimler ve Gelişim</h4>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                            <div class="flex items-center justify-between mb-1">
-                                <h5 class="font-bold text-white text-sm">BAYKAR Teknoloji</h5>
-                                <span class="text-[11px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded">Gönüllü Staj Planı</span>
-                            </div>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                                Sn. Burak Güngör ile kurulan sektörel iletişim neticesinde gönüllü staj görüşmesi gerçekleştirilmiş, savunma teknolojilerinde saha deneyimi hedeflenmiştir.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                            <div class="flex items-center justify-between mb-1">
-                                <h5 class="font-bold text-white text-sm">ASELSAN</h5>
-                                <span class="text-[11px] font-mono text-blue-400 bg-blue-950 px-2 py-0.5 rounded">Proje Değerlendirme</span>
-                            </div>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                                Sn. Evren Tan ile projeler üzerine teknik geri bildirim ve savunma sanayiinde sistem geliştirme standartları üzerine istişare.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Eğitim Geçmişi Zaman Çizelgesi -->
-                <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4 class="text-base font-bold text-white">Eğitim ve Atölye Programları</h4>
-                    </div>
-
-                    <div class="space-y-6 relative border-l border-slate-800 ml-3 pl-6">
-                        <!-- 1. MCBU -->
+            <!-- TAB 4: EDUCATION & BACKGROUND -->
+            <div id="pane-experience" class="tab-pane hidden flex flex-col gap-8">
+                <!-- Academic Journey -->
+                <div class="card-surface rounded-2xl p-6 sm:p-8">
+                    <h4 class="serif-heading text-2xl text-warm-900 mb-6" id="eduHeading">Academic Background & Technology Workshops</h4>
+                    
+                    <div class="space-y-8 relative border-l border-warm-200 ml-3 pl-6">
+                        <!-- University Item -->
                         <div class="relative">
-                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-cyan-950"></div>
+                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-terracotta ring-4 ring-warm-100"></div>
                             <div class="flex items-center justify-between flex-wrap gap-1">
-                                <h5 class="font-bold text-white text-sm">Manisa Celal Bayar Üniversitesi (MCBÜ)</h5>
-                                <span class="text-xs font-mono text-cyan-400">Mekatronik Müh.</span>
+                                <h5 class="serif-heading text-lg text-warm-900 font-semibold" id="eduUnivTitle">Manisa Celal Bayar University (MCBÜ)</h5>
+                                <span class="text-xs font-mono text-terracotta" id="eduUnivStatus">Undergraduate</span>
                             </div>
-                            <p class="text-xs text-slate-300 mt-1">Mühendislik Fakültesi, Mekatronik Mühendisliği</p>
+                            <p class="text-xs sm:text-sm text-warm-600 mt-1" id="eduUnivDept">Faculty of Engineering — Mechatronics Engineering</p>
                         </div>
 
-                        <!-- 2. Deneyap -->
+                        <!-- Deneyap Item -->
                         <div class="relative">
-                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-emerald-950"></div>
+                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-emerald-600 ring-4 ring-warm-100"></div>
                             <div class="flex items-center justify-between flex-wrap gap-1">
-                                <h5 class="font-bold text-white text-sm">Deneyap Türkiye Teknoloji Atölyeleri</h5>
-                                <span class="text-xs font-mono text-emerald-400">Resmi Mezun</span>
+                                <h5 class="serif-heading text-lg text-warm-900 font-semibold" id="eduDeneyapTitle">Deneyap Türkiye Technology Workshops</h5>
+                                <span class="text-xs font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200" id="eduDeneyapGrad">Certified Graduate</span>
                             </div>
-                            <p class="text-xs text-slate-400 mt-1">
-                                3 yıllık yoğun teknoloji programı: Robotik ve Kodlama, Yapay Zekâ, Siber Güvenlik, Nanoteknoloji, Havacılık ve Uzay, IoT, Tasarım ve Üretim.
+                            <p class="text-xs sm:text-sm text-warm-600 mt-1 leading-relaxed" id="eduDeneyapDesc">
+                                Comprehensive 3-year technology development program across 10 fields: Robotics, Artificial Intelligence, Cybersecurity, Nanotechnology, Aerospace, IoT, Design & Production.
                             </p>
-                            <a href="https://drdogrulama.sanayi.gov.tr/tr/credentials/tahacantunc574740/5/" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 hover:underline mt-2">
-                                <i class="fas fa-shield-check"></i> Sanayi ve Teknoloji Bakanlığı Belge Doğrulama
+                            <a href="https://drdogrulama.sanayi.gov.tr/tr/credentials/tahacantunc574740/5/" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-mono text-terracotta hover:underline mt-2">
+                                <i class="fas fa-shield-halved text-[11px]"></i>
+                                <span id="eduDeneyapVerify">Verify Ministry Credential</span>
                             </a>
                         </div>
 
-                        <!-- 3. İAU -->
+                        <!-- Istanbul Aydin University Item -->
                         <div class="relative">
-                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-blue-400 ring-4 ring-blue-950"></div>
+                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-warm-300 ring-4 ring-warm-100"></div>
                             <div class="flex items-center justify-between flex-wrap gap-1">
-                                <h5 class="font-bold text-white text-sm">İstanbul Aydın Üniversitesi (SEM)</h5>
-                                <span class="text-xs font-mono text-slate-400">2023</span>
+                                <h5 class="serif-heading text-lg text-warm-900 font-semibold" id="eduIauTitle">Istanbul Aydın University (Continuing Education Center)</h5>
+                                <span class="text-xs font-mono text-warm-600">2023</span>
                             </div>
-                            <p class="text-xs text-slate-400 mt-1">
-                                İHA-1 Pilot Eğitimi (32 saat), İHA-2 Ticari Drone Pilot Eğitimi (32 saat) ve Temel Radyo Haberleşme Sertifikası.
+                            <p class="text-xs sm:text-sm text-warm-600 mt-1 leading-relaxed" id="eduIauDesc">
+                                UAV-1 Pilot License (32 hrs), UAV-2 Commercial Drone Pilot License (32 hrs), and Basic Radio Telecommunication Certification.
                             </p>
                         </div>
 
-                        <!-- 4. Diğer -->
+                        <!-- Additional Workshops -->
                         <div class="relative">
-                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-900"></div>
+                            <div class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-warm-300 ring-4 ring-warm-100"></div>
                             <div class="flex items-center justify-between flex-wrap gap-1">
-                                <h5 class="font-bold text-white text-sm">Uzmanlık & Atölye Eğitimleri</h5>
-                                <span class="text-xs font-mono text-slate-400">2022 - 2025</span>
+                                <h5 class="serif-heading text-lg text-warm-900 font-semibold" id="eduOtherTitle">Specialized Technical Training</h5>
+                                <span class="text-xs font-mono text-warm-600">2022 – 2025</span>
                             </div>
-                            <p class="text-xs text-slate-400 mt-1">
-                                T3 Vakfı Bilim Zeytinburnu Su Altı Sistemleri Eğitimi • Zeytinburnu Gençlik Merkezi 3 Boyutlu Tasarım ve Yazıcı Atölyesi • TÜGVA Python Programlama.
+                            <p class="text-xs sm:text-sm text-warm-600 mt-1 leading-relaxed" id="eduOtherDesc">
+                                Underwater Robotics & Systems Workshop (T3 Foundation / Bilim Zeytinburnu) • 3D Design and Additive Manufacturing Workshop (ZGM) • Python Programming Training (TÜGVA).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practical Industry Engagements -->
+                <div class="card-surface rounded-2xl p-6 sm:p-8">
+                    <h4 class="serif-heading text-2xl text-warm-900 mb-6" id="indHeading">Industry Consultations & Practical Exposure</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="p-5 rounded-xl bg-warm-50 border border-warm-150">
+                            <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-semibold text-warm-900 text-sm">BAYKAR Technology</h5>
+                                <span class="text-[11px] font-mono text-warm-800 bg-warm-100 px-2 py-0.5 rounded" id="indBaykarBadge">Volunteer Internship Plan</span>
+                            </div>
+                            <p class="text-xs text-warm-600 leading-relaxed font-normal" id="indBaykarDesc">
+                                Direct communication established with Mr. Burak Güngör to participate in volunteer internship exposure across unmanned defense systems engineering.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-warm-50 border border-warm-150">
+                            <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-semibold text-warm-900 text-sm">ASELSAN</h5>
+                                <span class="text-[11px] font-mono text-warm-800 bg-warm-100 px-2 py-0.5 rounded" id="indAselsanBadge">Technical Consultation</span>
+                            </div>
+                            <p class="text-xs text-warm-600 leading-relaxed font-normal" id="indAselsanDesc">
+                                Project evaluation and industry feedback consultation with Mr. Evren Tan on defense system architecture and design standards.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 5: AWARDS & CERTIFICATES (ÖDÜLLER & SERTİFİKALAR) -->
-            <div id="tab-awards" class="tab-pane hidden flex flex-col gap-6">
+            <!-- TAB 5: HONORS & CERTIFICATIONS -->
+            <div id="pane-awards" class="tab-pane hidden flex flex-col gap-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Ödüller -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg bg-yellow-500/10 text-yellow-400 flex items-center justify-center">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <h4 class="text-base font-bold text-white">Ödüller & Başarılar</h4>
-                        </div>
-
-                        <div class="space-y-3">
-                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-3">
-                                <i class="fas fa-medal text-amber-400 text-lg mt-0.5"></i>
-                                <div>
-                                    <h5 class="font-bold text-white text-sm">TEKNOFEST Sağlıkta Yapay Zekâ</h5>
-                                    <p class="text-xs text-slate-400 mt-0.5">Yıl: 2023 • Derece: Türkiye Geneli İlk 200 Finalist</p>
-                                </div>
+                    <!-- Honors Column -->
+                    <div class="card-surface rounded-2xl p-6">
+                        <h4 class="serif-heading text-xl text-warm-900 mb-4" id="honorsColTitle">Honors & Competition Recognition</h4>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-warm-50 border border-warm-150">
+                                <div class="text-xs font-mono text-terracotta uppercase tracking-wider">TEKNOFEST 2023</div>
+                                <h5 class="serif-heading text-base text-warm-900 font-semibold mt-1" id="honorTeknofestTitle">AI in Healthcare Competition</h5>
+                                <p class="text-xs text-warm-600 mt-1 font-normal" id="honorTeknofestDesc">Top 200 Finalist nationwide across applied computer vision & deep learning solutions.</p>
                             </div>
 
-                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-3">
-                                <i class="fas fa-award text-cyan-400 text-lg mt-0.5"></i>
-                                <div>
-                                    <h5 class="font-bold text-white text-sm">ROKETSAN Takdir ve Tebrik</h5>
-                                    <p class="text-xs text-slate-400 mt-0.5">TakeOff İstanbul Zirvesi (2025) kapsamında mühendislik vizyonu takdiri.</p>
-                                </div>
+                            <div class="p-4 rounded-xl bg-warm-50 border border-warm-150">
+                                <div class="text-xs font-mono text-terracotta uppercase tracking-wider">TakeOff Istanbul 2025</div>
+                                <h5 class="serif-heading text-base text-warm-900 font-semibold mt-1" id="honorRoketsanTitle">ROKETSAN Engineering Appreciation</h5>
+                                <p class="text-xs text-warm-600 mt-1 font-normal" id="honorRoketsanDesc">Commendation received for ambitious engineering vision and technical concepts.</p>
                             </div>
 
-                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-3">
-                                <i class="fas fa-graduation-cap text-emerald-400 text-lg mt-0.5"></i>
-                                <div>
-                                    <h5 class="font-bold text-white text-sm">Deneyap Türkiye Program Mezuniyeti</h5>
-                                    <p class="text-xs text-slate-400 mt-0.5">T.C. Sanayi ve Teknoloji Bakanlığı & TÜBİTAK onaylı mezuniyet.</p>
-                                </div>
+                            <div class="p-4 rounded-xl bg-warm-50 border border-warm-150">
+                                <div class="text-xs font-mono text-terracotta uppercase tracking-wider">Ministry of Industry & Technology</div>
+                                <h5 class="serif-heading text-base text-warm-900 font-semibold mt-1" id="honorDeneyapGradTitle">Deneyap Technology Program Graduation</h5>
+                                <p class="text-xs text-warm-600 mt-1 font-normal" id="honorDeneyapGradDesc">Official graduation honors certified by TÜBİTAK and Ministry of Technology.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sertifikalar -->
-                    <div class="glass-card rounded-2xl p-6 border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h4 class="text-base font-bold text-white">Doğrulanabilir Sertifikalar</h4>
-                        </div>
-
+                    <!-- Verified Licenses Column -->
+                    <div class="card-surface rounded-2xl p-6">
+                        <h4 class="serif-heading text-xl text-warm-900 mb-4" id="certColTitle">Verified Licenses & Certificates</h4>
                         <ul class="space-y-2.5 text-xs sm:text-sm">
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-cyan-400"></i>
-                                    <span>İHA-2 Ticari Drone Pilot Lisansı</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="certUav2">UAV-2 Commercial Drone Pilot License</span>
                                 </div>
-                                <span class="font-mono text-[11px] text-slate-500">İAU SEM</span>
+                                <span class="font-mono text-xs text-warm-600">İAU SEM</span>
                             </li>
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-cyan-400"></i>
-                                    <span>İHA-1 Ticari Pilot Eğitimi (32 Saat)</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="certUav1">UAV-1 Commercial Drone Pilot (32 Hrs)</span>
                                 </div>
-                                <span class="font-mono text-[11px] text-slate-500">İAU SEM</span>
+                                <span class="font-mono text-xs text-warm-600">İAU SEM</span>
                             </li>
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-cyan-400"></i>
-                                    <span>Temel Radyo Haberleşme Sertifikası</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="certRadio">Basic Radio Telecommunication</span>
                                 </div>
-                                <span class="font-mono text-[11px] text-slate-500">İAU SEM</span>
+                                <span class="font-mono text-xs text-warm-600">İAU SEM</span>
                             </li>
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-emerald-400"></i>
-                                    <span>Deneyap Türkiye Atölyeleri (10 Alan)</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="certDeneyap">Deneyap Turkey Graduate (10 Disciplines)</span>
                                 </div>
-                                <a href="https://drdogrulama.sanayi.gov.tr/tr/credentials/tahacantunc574740/5/" target="_blank" class="font-mono text-[11px] text-cyan-400 hover:underline">
-                                    Doğrula <i class="fas fa-arrow-up-right-from-square text-[9px]"></i>
+                                <a href="https://drdogrulama.sanayi.gov.tr/tr/credentials/tahacantunc574740/5/" target="_blank" class="font-mono text-xs text-terracotta hover:underline flex items-center gap-1">
+                                    Verify <i class="fas fa-arrow-up-right-from-square text-[9px]"></i>
                                 </a>
                             </li>
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-cyan-400"></i>
-                                    <span>3D Tasarım & Katmanlı İmalat Atölyesi</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="cert3D">3D Design & Additive Fabrication</span>
                                 </div>
-                                <span class="font-mono text-[11px] text-slate-500">ZGM</span>
+                                <span class="font-mono text-xs text-warm-600">ZGM</span>
                             </li>
-                            <li class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5 text-slate-200">
-                                    <i class="fas fa-check-circle text-cyan-400"></i>
-                                    <span>Su Altı Sistemleri Eğitimi</span>
+                            <li class="p-3 rounded-xl bg-warm-50 border border-warm-150 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5 text-warm-900">
+                                    <i class="fas fa-check text-xs text-terracotta"></i>
+                                    <span id="certUnderwater">Underwater Robotics & Systems</span>
                                 </div>
-                                <span class="font-mono text-[11px] text-slate-500">T3 Vakfı</span>
+                                <span class="font-mono text-xs text-warm-600">T3 Foundation</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 6: CONTACT (İLETİŞİM) -->
-            <div id="tab-contact" class="tab-pane hidden flex flex-col gap-6">
-                <div class="glass-card rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto w-full text-center border border-slate-800">
-                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+            <!-- TAB 6: CONTACT -->
+            <div id="pane-contact" class="tab-pane hidden flex flex-col gap-8">
+                <div class="card-surface rounded-2xl p-6 sm:p-10 max-w-xl mx-auto w-full text-center">
+                    <span class="w-12 h-12 rounded-full bg-warm-100 text-terracotta flex items-center justify-center mx-auto mb-4 text-lg">
                         <i class="fas fa-paper-plane"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2" data-i18n="contactTitle">İletişime Geçin</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mb-6 max-w-md mx-auto" data-i18n="contactDesc">
-                        Mekatronik sistem tasarımı, savunma sanayii projeleri, açık kaynak çalışmalar veya staj ve iş birlikleri için doğrudan bana ulaşabilirsiniz.
+                    </span>
+                    <h3 class="serif-heading text-2xl sm:text-3xl text-warm-900 mb-2" id="contactTitle">Let's Connect</h3>
+                    <p class="text-xs sm:text-sm text-warm-600 mb-8 max-w-md mx-auto leading-relaxed" id="contactDesc">
+                        Open for engineering opportunities, mechatronic system development, defense tech inquiries, or open-source collaboration.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-6">
-                        <a href="mailto:tcttaha@gmail.com" class="p-4 bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 rounded-xl transition flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
-                                <i class="fas fa-envelope text-lg"></i>
+                    <div class="space-y-3 text-left">
+                        <a href="mailto:tcttaha@gmail.com" class="p-4 rounded-xl bg-warm-50 hover:bg-warm-100 border border-warm-200 transition flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-white border border-warm-200 flex items-center justify-center text-warm-800">
+                                    <i class="fas fa-envelope text-sm"></i>
+                                </span>
+                                <div>
+                                    <div class="text-[11px] font-mono text-warm-600" id="contactEmailLabel">Email Address</div>
+                                    <div class="text-sm font-semibold text-warm-900">tcttaha@gmail.com</div>
+                                </div>
                             </div>
-                            <div class="overflow-hidden">
-                                <div class="text-[11px] font-mono text-slate-400">E-Posta</div>
-                                <div class="text-sm font-semibold text-white truncate">tcttaha@gmail.com</div>
-                            </div>
+                            <i class="fas fa-arrow-right text-xs text-warm-400 group-hover:text-warm-900 transition"></i>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" rel="noopener noreferrer" class="p-4 bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 rounded-xl transition flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
-                                <i class="fab fa-linkedin-in text-lg"></i>
+                        <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-warm-50 hover:bg-warm-100 border border-warm-200 transition flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-white border border-warm-200 flex items-center justify-center text-[#0A66C2]">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
+                                </span>
+                                <div>
+                                    <div class="text-[11px] font-mono text-warm-600">LinkedIn Profile</div>
+                                    <div class="text-sm font-semibold text-warm-900">Taha Can Tunç</div>
+                                </div>
                             </div>
-                            <div class="overflow-hidden">
-                                <div class="text-[11px] font-mono text-slate-400">LinkedIn</div>
-                                <div class="text-sm font-semibold text-white truncate">Taha Can Tunç</div>
-                            </div>
+                            <i class="fas fa-arrow-right text-xs text-warm-400 group-hover:text-warm-900 transition"></i>
                         </a>
-                    </div>
 
-                    <div class="p-4 bg-slate-900/50 rounded-xl border border-slate-800/80 flex items-center justify-between flex-wrap gap-3">
-                        <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
-                            <i class="fab fa-github text-slate-300"></i>
-                            <span>github.com/NothingManTR</span>
-                        </div>
-                        <a href="https://github.com/NothingManTR" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-white transition">
-                            Profili İncele
+                        <a href="https://github.com/NothingManTR" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-warm-50 hover:bg-warm-100 border border-warm-200 transition flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-white border border-warm-200 flex items-center justify-center text-warm-900">
+                                    <i class="fab fa-github text-sm"></i>
+                                </span>
+                                <div>
+                                    <div class="text-[11px] font-mono text-warm-600">GitHub Profile</div>
+                                    <div class="text-sm font-semibold text-warm-900">@NothingManTR</div>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-right text-xs text-warm-400 group-hover:text-warm-900 transition"></i>
                         </a>
                     </div>
                 </div>
@@ -794,30 +744,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="glass-panel border-t border-slate-800/80 py-6 mt-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 font-mono">
+    <footer class="border-t border-warm-150 py-8 bg-[#FAF8F5]">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-warm-600 font-mono">
             <div>
-                © <span id="currentYear"></span> Taha Can Tunç • <span data-i18n="footerText">Mekatronik & Savunma Sanayii Odaklı Mühendis Adayı</span>
+                © <span id="currentYear"></span> Taha Can Tunç • <span id="footerTagline">Mechatronics & Systems Engineering</span>
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://github.com/NothingManTR" target="_blank" class="hover:text-cyan-400 transition">GitHub</a>
-                <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" class="hover:text-cyan-400 transition">LinkedIn</a>
-                <a href="mailto:tcttaha@gmail.com" class="hover:text-cyan-400 transition">E-Posta</a>
+                <a href="https://github.com/NothingManTR" target="_blank" class="hover:text-warm-900 transition">GitHub</a>
+                <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" class="hover:text-warm-900 transition">LinkedIn</a>
+                <a href="mailto:tcttaha@gmail.com" class="hover:text-warm-900 transition">Email</a>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Logic (Tabs, Filter, Language Toggle) -->
+    <!-- Interactive Script (Default English, Claude-style Tabs, Filter, Localization) -->
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // 1. Tab Navigation Logic (Instant switching, No clunky 1-page lag)
+        // 1. Tab Switching Logic
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabPanes = document.querySelectorAll('.tab-pane');
 
-        function switchTab(targetId) {
+        function switchTab(targetName) {
             tabButtons.forEach(btn => {
-                if (btn.dataset.target === targetId) {
+                if (btn.dataset.tab === targetName) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
@@ -825,7 +775,7 @@
             });
 
             tabPanes.forEach(pane => {
-                if (pane.id === targetId) {
+                if (pane.id === `pane-${targetName}`) {
                     pane.classList.remove('hidden');
                 } else {
                     pane.classList.add('hidden');
@@ -836,120 +786,243 @@
 
         tabButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                switchTab(btn.dataset.target);
+                switchTab(btn.dataset.tab);
             });
         });
 
         // 2. Project Filtering Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectItems = document.querySelectorAll('.project-item');
-        const projectCountEl = document.getElementById('projectCount');
+        const projectCards = document.querySelectorAll('.project-card');
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('active'));
+                filterButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.remove('bg-warm-900', 'text-white');
+                    b.classList.add('bg-warm-100', 'text-warm-600');
+                });
                 btn.classList.add('active');
+                btn.classList.remove('bg-warm-100', 'text-warm-600');
+                btn.classList.add('bg-warm-900', 'text-white');
 
                 const filter = btn.dataset.filter;
-                let visibleCount = 0;
-
-                projectItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.classList.remove('hidden');
-                        visibleCount++;
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
                     } else {
-                        item.classList.add('hidden');
+                        card.classList.add('hidden');
                     }
                 });
-
-                if (projectCountEl) projectCountEl.textContent = visibleCount;
             });
         });
 
-        // 3. Bilingual (TR / EN) Localization Dictionary
-        const i18n = {
-            tr: {
-                status: "Mekatronik & Savunma Sanayii",
-                heroBadge: "Mekatronik & Gömülü Sistemler Geliştiricisi",
-                heroGreeting: "Geleceğin Savunma ve Otonom Sistemlerini Tasarlayan",
-                heroBio: "Sensör entegrasyonu, gömülü yazılımlar (C/C++, Python) ve otonom mekatronik platformlar üzerine odaklanıyorum. Deneyap Türkiye mezunu ve İHA-1/İHA-2 ticari drone pilotuyum.",
-                btnGitHub: "GitHub Profili",
-                btnContact: "İletişime Geç",
-                statEducationLabel: "Eğitim",
-                statEducationVal: "MCBÜ",
-                statDeneyapLabel: "Deneyap Türkiye",
-                statDeneyapVal: "10 Teknoloji Alanı",
-                statDeneyapSub: "Resmi Mezun",
-                statUavLabel: "Havacılık & İHA",
-                statUavSub: "Ticari Pilot Lisansı",
-                statVisionLabel: "Vizyon",
-                tabOverview: "Genel Bakış",
-                tabProjects: "Projeler",
-                tabSkills: "Teknik Beceriler",
-                tabExperience: "Eğitim & Deneyim",
-                tabAwards: "Ödüller & Sertifikalar",
-                tabContact: "İletişim",
-                visionTitle: "🎯 Kariyer Hedefi ve Vizyon",
-                visionText: "Savunma sanayii sektöründe, Türkiye'nin öncü kurumları olan ASELSAN, ROKETSAN ve BAYKAR gibi kurumlarda mühendislik, Ar-Ge ve sistem tasarımı pozisyonlarında görev alarak yenilikçi projelere aktif katkı sağlamayı hedeflemekteyim. Uzun vadeli vizyonum ise 'TUNÇSAN' adıyla kendi savunma sanayii ve ileri teknoloji mekatronik şirketimi kurarak bu alanda küresel ölçekte çığır açan projelere imza atmaktır.",
-                plantelligenceBrief: "Deneyap Kart ve IoT sensörleri ile ısı, nem, ışık ve otomatik sulamayı optimize eden kapalı döngü akıllı sera sistemi.",
-                omadockBrief: "Arch/Omarchy Linux masaüstü ortamı için geliştirilmiş hafif, minimalist uygulama doku ve dinamik arayüz menü araçları.",
-                githubLiveTitle: "GitHub Canlı Aktivite Özeti",
-                contactTitle: "İletişime Geçin",
-                contactDesc: "Mekatronik sistem tasarımı, savunma sanayii projeleri, açık kaynak çalışmalar veya staj ve iş birlikleri için doğrudan bana ulaşabilirsiniz.",
-                footerText: "Mekatronik & Savunma Sanayii Odaklı Mühendis Adayı"
-            },
+        // 3. Full Bilingual Dictionary (Default: English)
+        const translations = {
             en: {
-                status: "Mechatronics & Defense Systems",
-                heroBadge: "Mechatronics & Embedded Systems Engineer",
-                heroGreeting: "Designing the Next Generation of Defense & Autonomous",
-                heroBio: "Focusing on sensor integration, embedded software (C/C++, Python), and autonomous mechatronic systems. Deneyap Türkiye graduate and certified commercial UAV-1 / UAV-2 pilot.",
-                btnGitHub: "GitHub Profile",
-                btnContact: "Contact Me",
-                statEducationLabel: "Education",
-                statEducationVal: "Manisa Celal Bayar Univ.",
-                statDeneyapLabel: "Deneyap Turkey",
-                statDeneyapVal: "10 Tech Domains",
-                statDeneyapSub: "Certified Alum",
-                statUavLabel: "Aviation & UAV",
-                statUavSub: "Commercial Pilot Lic.",
-                statVisionLabel: "Vision",
-                tabOverview: "Overview",
-                tabProjects: "Projects",
-                tabSkills: "Technical Skills",
-                tabExperience: "Education & Exp.",
-                tabAwards: "Awards & Honors",
-                tabContact: "Contact",
-                visionTitle: "🎯 Career Objective & Vision",
-                visionText: "Dedicated to contributing to pioneering R&D and systems engineering at leading defense institutions such as ASELSAN, ROKETSAN, and BAYKAR. Long-term aspiration: establishing 'TUNÇSAN' to pioneer breakthrough global defense and advanced mechatronic technologies.",
-                plantelligenceBrief: "Closed-loop smart greenhouse system optimizing temperature, moisture, lighting, and automated irrigation with Deneyap Board and IoT sensors.",
-                omadockBrief: "Lightweight, minimal application dock and dynamic HUD launcher menus tailored for the Arch/Omarchy Linux desktop environment.",
-                githubLiveTitle: "Live GitHub Activity Summary",
-                contactTitle: "Get in Touch",
-                contactDesc: "Feel free to reach out for mechatronics system design, defense tech collaborations, open-source projects, or internship opportunities.",
-                footerText: "Mechatronics Systems & Defense Industry Enthusiast"
+                heroRoleBadge: "Mechatronics & Systems Engineering",
+                heroTitle: "Engineering thoughtful autonomous systems, embedded software, and defense solutions.",
+                heroBio: "Mechatronics Engineering student at Manisa Celal Bayar University. Focused on sensor integration, microcontrollers (C/C++, Python), and open-source Linux architectures. Deneyap Türkiye alumni & certified commercial UAV pilot.",
+                heroCtaContact: "Get in Touch",
+                heroCtaGitHub: "View GitHub",
+                navTabOverview: "Overview",
+                navTabProjects: "Projects",
+                navTabSkills: "Technical Skills",
+                navTabExperience: "Education & Background",
+                navTabAwards: "Honors & Certifications",
+                navTabContact: "Contact",
+                overviewVisionBadge: "Career Mission",
+                overviewVisionTitle: "Contributing to advanced defense systems and pioneering autonomous engineering.",
+                overviewVisionBody: "Committed to contributing to engineering, R&D, and systems architecture at premier defense institutions including ASELSAN, ROKETSAN, and BAYKAR. Long-term aspiration: founding 'TUNÇSAN' to pioneer global breakthrough mechatronic and defense technologies.",
+                overviewFeaturedHeading: "Featured Work",
+                overviewViewAllBtn: 'View all projects <i class="fas fa-arrow-right text-[10px]"></i>',
+                overviewTagIot: "IoT & Agriculture",
+                overviewPlantelligenceTitle: "Plantelligence — Smart Greenhouse Platform",
+                overviewPlantelligenceDesc: "Autonomous cultivation and greenhouse platform utilizing Deneyap Board & environmental sensors to regulate temperature, humidity, lighting, and automated irrigation.",
+                overviewLiveDemo1: 'Live Demo <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>',
+                overviewTagLinux: "Linux & Desktop",
+                overviewOmadockTitle: "omadock & island — Desktop Utilities",
+                overviewOmadockDesc: "Lightweight, clean application dock and dynamic launcher HUD designed for the Arch/Omarchy Linux desktop ecosystem with minimal resource footprint.",
+                metricUniv: "Mechatronics Eng.",
+                metricDeneyap: "Tech Disciplines",
+                metricUav: "Licensed Drone Pilot",
+                metricRepos: "Public Repositories",
+                filterAll: "All Projects",
+                filterMechatronics: "Mechatronics & IoT",
+                filterLinux: "Linux & Tools",
+                filterSoftware: "Software & Web",
+                pjCatIot: "IoT & Hardware",
+                pjTitlePlantelligence: "Plantelligence — Smart Cultivation System",
+                pjDescPlantelligence: "Closed-loop agricultural automation with Deneyap Board, environmental sensors, and a real-time web portal managing temperature, humidity, lighting, and automated irrigation.",
+                pjLiveSite: 'Live Platform <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>',
+                pjCatDefense: "Defense & UAV",
+                pjStatusConcept: "Concept / R&D",
+                pjTitleDrone: "Smart Autonomous Drone Concept",
+                pjDescDrone: "Multi-sensor fusion and dynamic evasion route planning system designed for unmanned aerial platforms operating in contested environments.",
+                pjRoleConcept: "System Architecture",
+                pjStageResearch: "R&D Stage",
+                pjDescOmadock: "Clean, minimal application dock designed for the Omarchy Linux desktop ecosystem, focusing on low memory usage and smooth Wayland performance.",
+                pjDescIsland: "Fast, accessible dynamic menu launcher and HUD utilities rewritten for modern lightweight Linux distributions.",
+                pjCatNetworking: "Networking & Privacy",
+                pjDescAnonchat: "Real-time, privacy-focused anonymous communication platform built with lightweight socket connections and zero persistent tracking.",
+                skillCol1Title: "Software & Coding",
+                skillCol2Title: "Embedded Systems",
+                skillCol3Title: "CAD & Environments",
+                eduHeading: "Academic Background & Technology Workshops",
+                eduUnivTitle: "Manisa Celal Bayar University (MCBÜ)",
+                eduUnivStatus: "Undergraduate",
+                eduUnivDept: "Faculty of Engineering — Mechatronics Engineering",
+                eduDeneyapTitle: "Deneyap Türkiye Technology Workshops",
+                eduDeneyapGrad: "Certified Graduate",
+                eduDeneyapDesc: "Comprehensive 3-year technology development program across 10 fields: Robotics, Artificial Intelligence, Cybersecurity, Nanotechnology, Aerospace, IoT, Design & Production.",
+                eduDeneyapVerify: "Verify Ministry Credential",
+                eduIauTitle: "Istanbul Aydın University (Continuing Education Center)",
+                eduIauDesc: "UAV-1 Pilot License (32 hrs), UAV-2 Commercial Drone Pilot License (32 hrs), and Basic Radio Telecommunication Certification.",
+                eduOtherTitle: "Specialized Technical Training",
+                eduOtherDesc: "Underwater Robotics & Systems Workshop (T3 Foundation / Bilim Zeytinburnu) • 3D Design and Additive Manufacturing Workshop (ZGM) • Python Programming Training (TÜGVA).",
+                indHeading: "Industry Consultations & Practical Exposure",
+                indBaykarBadge: "Volunteer Internship Plan",
+                indBaykarDesc: "Direct communication established with Mr. Burak Güngör to participate in volunteer internship exposure across unmanned defense systems engineering.",
+                indAselsanBadge: "Technical Consultation",
+                indAselsanDesc: "Project evaluation and industry feedback consultation with Mr. Evren Tan on defense system architecture and design standards.",
+                honorsColTitle: "Honors & Competition Recognition",
+                honorTeknofestTitle: "AI in Healthcare Competition",
+                honorTeknofestDesc: "Top 200 Finalist nationwide across applied computer vision & deep learning solutions.",
+                honorRoketsanTitle: "ROKETSAN Engineering Appreciation",
+                honorRoketsanDesc: "Commendation received for ambitious engineering vision and technical concepts.",
+                honorDeneyapGradTitle: "Deneyap Technology Program Graduation",
+                honorDeneyapGradDesc: "Official graduation honors certified by TÜBİTAK and Ministry of Technology.",
+                certColTitle: "Verified Licenses & Certificates",
+                certUav2: "UAV-2 Commercial Drone Pilot License",
+                certUav1: "UAV-1 Commercial Drone Pilot (32 Hrs)",
+                certRadio: "Basic Radio Telecommunication",
+                certDeneyap: "Deneyap Turkey Graduate (10 Disciplines)",
+                cert3D: "3D Design & Additive Fabrication",
+                certUnderwater: "Underwater Robotics & Systems",
+                contactTitle: "Let's Connect",
+                contactDesc: "Open for engineering opportunities, mechatronic system development, defense tech inquiries, or open-source collaboration.",
+                contactEmailLabel: "Email Address",
+                footerTagline: "Mechatronics & Systems Engineering"
+            },
+            tr: {
+                heroRoleBadge: "Mekatronik & Sistem Mühendisliği",
+                heroTitle: "Otonom sistemler, gömülü yazılımlar ve savunma çözümleri tasarlıyorum.",
+                heroBio: "Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisi. Sensör entegrasyonu, mikrodenetleyiciler (C/C++, Python) ve açık kaynak Linux mimarilerine odaklanıyor. Deneyap Türkiye mezunu ve lisanslı ticari İHA pilotu.",
+                heroCtaContact: "İletişime Geç",
+                heroCtaGitHub: "GitHub'ı Gör",
+                navTabOverview: "Genel Bakış",
+                navTabProjects: "Projeler",
+                navTabSkills: "Teknik Beceriler",
+                navTabExperience: "Eğitim & Deneyim",
+                navTabAwards: "Ödüller & Sertifikalar",
+                navTabContact: "İletişim",
+                overviewVisionBadge: "Kariyer Vizyonu",
+                overviewVisionTitle: "İleri savunma sanayii ve otonom mühendislik sistemlerine katkı.",
+                overviewVisionBody: "ASELSAN, ROKETSAN ve BAYKAR gibi öncü kurumlarda mühendislik, Ar-Ge ve sistem tasarımı pozisyonlarında görev almayı hedeflemekteyim. Uzun vadeli vizyonum: 'TUNÇSAN' adıyla küresel ölçekte yenilikçi mekatronik ve savunma teknolojileri geliştirmek.",
+                overviewFeaturedHeading: "Öne Çıkan Çalışmalar",
+                overviewViewAllBtn: 'Tüm projeleri gör <i class="fas fa-arrow-right text-[10px]"></i>',
+                overviewTagIot: "IoT & Akıllı Tarım",
+                overviewPlantelligenceTitle: "Plantelligence — Akıllı Sera Platformu",
+                overviewPlantelligenceDesc: "Deneyap Kart ve çevre sensörleri ile ısı, nem, ışık ve otomatik sulamayı kapalı döngüde optimize eden otonom bitki yetiştirme platformu.",
+                overviewLiveDemo1: 'Canlı Demo <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>',
+                overviewTagLinux: "Linux & Masaüstü",
+                overviewOmadockTitle: "omadock & island — Masaüstü Araçları",
+                overviewOmadockDesc: "Arch/Omarchy Linux ekosistemi için tasarlanmış düşük kaynak tüketimli, sade uygulama dock'u ve dinamik başlatıcı araçları.",
+                metricUniv: "Mekatronik Müh.",
+                metricDeneyap: "Teknoloji Alanı",
+                metricUav: "Ticari İHA Pilotu",
+                metricRepos: "Açık Repo",
+                filterAll: "Tüm Projeler",
+                filterMechatronics: "Mekatronik & IoT",
+                filterLinux: "Linux & Araçlar",
+                filterSoftware: "Yazılım & Web",
+                pjCatIot: "IoT & Donanım",
+                pjTitlePlantelligence: "Plantelligence — Akıllı Sera Sistemi",
+                pjDescPlantelligence: "Deneyap Kart, çevre sensörleri ve canlı web arayüzü ile ısı, nem, ışık ve otomatik sulama yönetimi sağlayan tarımsal otomasyon.",
+                pjLiveSite: 'Canlı Platform <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>',
+                pjCatDefense: "Savunma & İHA",
+                pjStatusConcept: "Konsept / Ar-Ge",
+                pjTitleDrone: "Akıllı Otonom İHA Konsepti",
+                pjDescDrone: "Sensör füzyonu ve düşman hava savunma unsurlarına karşı dinamik kaçış rota optimizasyonu hedefleyen insansız hava aracı mimarisi.",
+                pjRoleConcept: "Sistem Mimarisi",
+                pjStageResearch: "Ar-Ge Aşaması",
+                pjDescOmadock: "Omarchy Linux masaüstü ortamı için düşük RAM tüketimi ve akıcı Wayland performansı sunan sade uygulama dock'u.",
+                pjDescIsland: "Hafif Linux dağıtımları için modernize edilmiş hızlı ve dinamik HUD/menü başlatıcı aracı.",
+                pjCatNetworking: "Ağ & Gizlilik",
+                pjDescAnonchat: "Hafif soket altyapısıyla geliştirilmiş, veri depolamayan ve gizlilik odaklı anlık mesajlaşma platformu.",
+                skillCol1Title: "Yazılım & Kodlama",
+                skillCol2Title: "Gömülü Sistemler",
+                skillCol3Title: "CAD & Ortamlar",
+                eduHeading: "Akademik Geçmiş & Teknoloji Atölyeleri",
+                eduUnivTitle: "Manisa Celal Bayar Üniversitesi (MCBÜ)",
+                eduUnivStatus: "Lisans Öğrencisi",
+                eduUnivDept: "Mühendislik Fakültesi — Mekatronik Mühendisliği",
+                eduDeneyapTitle: "Deneyap Türkiye Teknoloji Atölyeleri",
+                eduDeneyapGrad: "Resmi Mezun",
+                eduDeneyapDesc: "10 farklı disiplinde 3 yıllık yoğun teknoloji programı: Robotik, Yapay Zekâ, Siber Güvenlik, Nanoteknoloji, Havacılık ve Uzay, IoT, Tasarım ve Üretim.",
+                eduDeneyapVerify: "Bakanlık Belgesini Doğrula",
+                eduIauTitle: "İstanbul Aydın Üniversitesi (SEM)",
+                eduIauDesc: "İHA-1 Pilot Lisansı (32 saat), İHA-2 Ticari Drone Pilot Lisansı (32 saat) ve Temel Radyo Haberleşme Sertifikası.",
+                eduOtherTitle: "Uzmanlık Eğitimleri",
+                eduOtherDesc: "T3 Vakfı Bilim Zeytinburnu Su Altı Sistemleri • Zeytinburnu Gençlik Merkezi 3 Boyutlu Tasarım ve Üretim • TÜGVA Python Programlama.",
+                indHeading: "Sektörel Etkileşimler ve Saha Deneyimi",
+                indBaykarBadge: "Gönüllü Staj Planı",
+                indBaykarDesc: "İnsansız savunma sistemleri üzerine saha deneyimi edinmek amacıyla Sn. Burak Güngör ile kurulan doğrudan iletişim ve staj planı.",
+                indAselsanBadge: "Teknik İstişare",
+                indAselsanDesc: "Savunma sanayii sistem tasarımı ve standartları üzerine Sn. Evren Tan ile teknik değerlendirme görüşmesi.",
+                honorsColTitle: "Ödüller & Yarışma Başarıları",
+                honorTeknofestTitle: "Sağlıkta Yapay Zekâ Yarışması",
+                honorTeknofestDesc: "Görüntü işleme ve derin öğrenme kategorisinde Türkiye geneli İlk 200 Finalist.",
+                honorRoketsanTitle: "ROKETSAN Mühendislik Takdiri",
+                honorRoketsanDesc: "TakeOff İstanbul Zirvesi kapsamında mühendislik vizyonu ve teknik yaklaşımlara yönelik takdir.",
+                honorDeneyapGradTitle: "Deneyap Programı Mezuniyeti",
+                honorDeneyapGradDesc: "TÜBİTAK ve Sanayi ve Teknoloji Bakanlığı onaylı resmi mezuniyet başarısı.",
+                certColTitle: "Doğrulanabilir Lisans & Belgeler",
+                certUav2: "İHA-2 Ticari Drone Pilot Lisansı",
+                certUav1: "İHA-1 Ticari Drone Pilotu (32 Saat)",
+                certRadio: "Temel Radyo Haberleşme Belgesi",
+                certDeneyap: "Deneyap Türkiye Mezuniyeti (10 Alan)",
+                cert3D: "3D Tasarım & Katmanlı İmalat",
+                certUnderwater: "Su Altı Sistemleri Eğitimi",
+                contactTitle: "İletişime Geçin",
+                contactDesc: "Mühendislik projeleri, mekatronik sistem geliştirme, savunma teknolojileri veya açık kaynak iş birlikleri için bana ulaşabilirsiniz.",
+                contactEmailLabel: "E-Posta Adresi",
+                footerTagline: "Mekatronik & Sistem Mühendisliği"
             }
         };
 
-        let currentLang = 'tr';
-        const langToggleBtn = document.getElementById('langToggle');
-        const langLabel = document.getElementById('currentLangLabel');
+        function setLanguage(lang) {
+            const btnEn = document.getElementById('langBtnEn');
+            const btnTr = document.getElementById('langBtnTr');
 
-        function applyLanguage(lang) {
-            currentLang = lang;
-            langLabel.textContent = lang === 'tr' ? 'EN' : 'TR';
-            document.documentElement.lang = lang;
+            if (lang === 'en') {
+                btnEn.classList.add('bg-white', 'text-warm-900', 'shadow-sm');
+                btnEn.classList.remove('text-warm-600');
+                btnTr.classList.remove('bg-white', 'text-warm-900', 'shadow-sm');
+                btnTr.classList.add('text-warm-600');
+                document.documentElement.lang = 'en';
+            } else {
+                btnTr.classList.add('bg-white', 'text-warm-900', 'shadow-sm');
+                btnTr.classList.remove('text-warm-600');
+                btnEn.classList.remove('bg-white', 'text-warm-900', 'shadow-sm');
+                btnEn.classList.add('text-warm-600');
+                document.documentElement.lang = 'tr';
+            }
 
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.dataset.i18n;
-                if (i18n[lang] && i18n[lang][key]) {
-                    el.innerHTML = i18n[lang][key];
+            const dict = translations[lang];
+            for (const key in dict) {
+                const el = document.getElementById(key);
+                if (el) {
+                    el.innerHTML = dict[key];
                 }
-            });
+            }
+            try {
+                localStorage.setItem('preferredLang', lang);
+            } catch (e) {}
         }
 
-        langToggleBtn.addEventListener('click', () => {
-            const nextLang = currentLang === 'tr' ? 'en' : 'tr';
-            applyLanguage(nextLang);
+        // On Load: DEFAULT TO ENGLISH ('en')
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
         });
     </script>
 </body>
